@@ -23,10 +23,11 @@ def ask_chatgpt(question):
     )
 
     # Extract and return the model's reply
-    reply = response.choices[0].text.strip()
+    # reply = response.choices[0].text.strip()
+    reply = response['choices'][0]['message']['content']
     return reply
 
 # Example usage
 question = "What is the capital of France?"
-response = ask_chatgpt(question)
-print("ChatGPT Response:", response)
+reply = ask_chatgpt(question)
+print("ChatGPT Response:"+ reply)
