@@ -2,8 +2,8 @@ import openai as ai
 from openai import OpenAI
 
 # Set your API key
-api_key = "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"
-client = OpenAI(api_key=api_key)
+api_k = "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"
+client = OpenAI(api_key=api_k)
 
 # Initialize the OpenAI API client
 
@@ -24,7 +24,7 @@ def ask_chatgpt(question):
 
     # Extract and return the model's reply
     # reply = response.choices[0].text.strip()
-    reply = response['choices'][0]['message']['content']
+    reply = str(response.choices[0].message.content)
     return reply
 
 # Example usage
