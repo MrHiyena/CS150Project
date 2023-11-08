@@ -1,21 +1,25 @@
-import openai
+import openai as ai
+from openai import OpenAI
 
 # Set your API key
-api_key = "YOUR_API_KEY"
+api_key = "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"
+client = OpenAI(api_key=api_key)
 
 # Initialize the OpenAI API client
-openai.api_key = api_key
 
 def ask_chatgpt(question):
     # Define the input prompt for ChatGPT
-    prompt = f"You: {question}\nChatGPT:"
+    prompt = question
 
     # Make a request to the API
-    response = openai.Completion.create(
-        engine="davinci",  # Choose the GPT-3.5 engine
-        prompt=prompt,
-        max_tokens=50,  # Adjust the desired response length
-        stop="\n",  # Stop when the model generates a newline character
+    response = client.chat.completions.create(
+        model ="gpt-3.5-turbo",
+        messages= [
+                {"role": "user", "content": prompt }
+        ],
+            
+        # max_tokens=50,  # Adjust the desired response length
+        # stop="\n",  # Stop when the model generates a newline character
     )
 
     # Extract and return the model's reply
