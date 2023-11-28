@@ -13,7 +13,7 @@ def play_button_click():
     status_label.config(text="Playing...")
 
 
-    # Delays after 2 seconds, Remember to alter the root term after voice work
+    # Delays after 2 seconds
     root.after(4000, set_playing_status)
 
 # Function to handle the Record button click
